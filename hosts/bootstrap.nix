@@ -1,6 +1,7 @@
 { lib, profiles, nixosModulesPath, ... }:
 {
   # https://nix.dev/tutorials/installing-nixos-on-a-raspberry-pi
+  # bud build bootstrap sdImage
 
   # build with: `bud build bootstrap bootstrapIso`
   # reachable on the local link via ssh root@fe80::47%eno1
@@ -11,7 +12,8 @@
     profiles.core
     profiles.users.root # make sure to configure ssh keys
     profiles.users.nixos
-    "${nixosModulesPath}/installer/sd-card/sd-image-aarch64-new-kernel-installer.nix"
+    # either new-kernel doesn't work or we need a gpt disk header
+    "${nixosModulesPath}/installer/sd-card/sd-image-aarch64-installer.nix"
   ];
 
   boot.supportedFilesystems = lib.mkForce [ "vfat" "ext4" ];
