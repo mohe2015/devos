@@ -3,7 +3,6 @@
   # https://nix.dev/tutorials/installing-nixos-on-a-raspberry-pi
   # bud build bootstrap sdImage
 
-  # build with: `bud build bootstrap bootstrapIso`
   # reachable on the local link via ssh root@fe80::47%eno1
   # where 'eno1' is replaced by your own machine's network
   # interface that has the local link to the target machine
@@ -17,6 +16,10 @@
   ];
 
   boot.supportedFilesystems = lib.mkForce [ "vfat" "ext4" ];
+
+  services.openssh = {
+    openFirewall = true;
+  };
 
   # nix-shell -p raspberrypi-eeprom
   # mount /dev/disk/by-label/FIRMWARE /mnt

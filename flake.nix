@@ -116,7 +116,9 @@
           imports = [ (digga.lib.importHosts ./hosts) ];
           hosts = {
             /* set host specific properties here */
-            NixOS = { };
+            NixOS = {
+              system = "aarch64-linux";
+            };
             bootstrap = {
               system = "aarch64-linux";
             };
