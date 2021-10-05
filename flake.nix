@@ -73,10 +73,10 @@
           nixos = {
             imports = [ (digga.lib.importOverlays ./overlays) ];
             overlays = [
-              digga.overlays.patchedNix
+              #digga.overlays.patchedNix
               nur.overlay
               agenix.overlay
-              nvfetcher.overlay
+              #nvfetcher.overlay
               ./pkgs/default.nix
             ];
           };
@@ -117,6 +117,9 @@
           hosts = {
             /* set host specific properties here */
             NixOS = { };
+            bootstrap = {
+              system = "aarch64-linux";
+            };
           };
           importables = rec {
             profiles = digga.lib.rakeLeaves ./profiles // {
