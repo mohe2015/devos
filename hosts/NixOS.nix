@@ -1,9 +1,6 @@
 { config, lib, suites, nixosModulesPath, ... }:
 {
-  # for first time:
-  # deploy '.#NixOS' --ssh-user nixos --hostname 192.168.2.126 --magic-rollback false
-  # else:
-  # deploy '.#NixOS' --ssh-user nixos --hostname 192.168.2.126
+  # deploy '.#NixOS' --ssh-user nixos --hostname 192.168.2.127
 
   imports = suites.base ++ [
     "${nixosModulesPath}/installer/sd-card/sd-image-aarch64.nix"
@@ -31,8 +28,8 @@
       networkConfig = {
         DHCP = "yes";
         # resolvectl dnssec eth0 off # to fix
-        DNSSEC = "false"; # can't use because NTP doesn't get bootstrapped - tihs is supposed to work but it doesn't
-        DNSOverTLS = "false";
+        DNSSEC = "no"; # can't use because NTP doesn't get bootstrapped - tihs is supposed to work but it doesn't
+        DNSOverTLS = "no";
         DNS = [ "1.1.1.1" "1.0.0.1" ];
       };
     in

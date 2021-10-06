@@ -39,8 +39,8 @@
       networkConfig = {
         DHCP = "yes";
         # resolvectl dnssec eth0 off # to fix
-        DNSSEC = "false"; # can't use because NTP doesn't get bootstrapped - tihs is supposed to work but it doesn't
-        DNSOverTLS = "false";
+        DNSSEC = "no"; # can't use because NTP doesn't get bootstrapped - tihs is supposed to work but it doesn't
+        DNSOverTLS = "no";
         DNS = [ "1.1.1.1" "1.0.0.1" ];
       };
     in
