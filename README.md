@@ -3,6 +3,8 @@ nix run nixpkgs#vulnix -- --whitelist vulnix.toml ./result
 # https://github.com/ckauhaus/nixos-vulnerability-roundup/blob/master/whitelists/nixos-unstable.toml
 
 nix why-depends --derivation ./result /nix/store/s5afxwh77n33j66pjp6jlgbzj3cy9x9w-openssl-1.1.1k.drv
+
+nix flake lock --update-input latest
 ```
 
 [![NixOS](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat&logo=NixOS&logoColor=white)](https://nixos.org)
