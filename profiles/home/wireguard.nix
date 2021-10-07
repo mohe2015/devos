@@ -14,11 +14,10 @@
           MTUBytes = "1300";
           Name = "wg0";
         };
-        # See also man systemd.netdev
+        # See also man systemd.netdev (also contains info on the permissions of the key files)
         extraConfig = ''
           [WireGuard]
-          # Currently, the private key must be world readable, as the resulting netdev file will reside in the Nix store.
-          PrivateKey=EMlybyTmXI/4z311xU9S3m82mC2OOMRfRM0Okiik83o=
+          PrivateKeyFile=/run/keys/wireguard-privkey
           ListenPort=9918
 
           [WireGuardPeer]

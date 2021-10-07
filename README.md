@@ -1,3 +1,8 @@
+```bash
+nix run nixpkgs#vulnix -- --whitelist vulnix.toml ./result
+# https://github.com/ckauhaus/nixos-vulnerability-roundup/blob/master/whitelists/nixos-unstable.toml
+```
+
 [![NixOS](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat&logo=NixOS&logoColor=white)](https://nixos.org)
 [![MIT License](https://img.shields.io/github/license/divnix/devos)][mit]
 [![Chat](https://img.shields.io/matrix/devos:nixos.org.svg?label=%23devos%3Anixos.org&logo=matrix&server_fqdn=matrix.org)][matrix]
